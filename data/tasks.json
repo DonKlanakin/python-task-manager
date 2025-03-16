@@ -19,5 +19,12 @@
         "description": "Set up a meeting with the team to discuss the unfinished tasks.",
         "due_date": "2025-03-18",
         "completed": false
+    },
+    {
+        "id": 4,
+        "title": "Submit Task Manager Project",
+        "description": "Python Task Manager project must be submit by weekend.",
+        "due_date": "2025-03-16",
+        "completed": true
     }
 ]
