@@ -12,7 +12,7 @@ class TaskStorage:
             with open(TASKS_FILE, "r") as file:
                 return json.load(file)
         else:
-            Log.debug("[-TaskStorage-]", "Tasks file not found.")
+            Log.debug("[-TaskStorage-]", "Tasks file not found.", "")
         return []
 
     @staticmethod
