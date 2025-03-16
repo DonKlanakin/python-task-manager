@@ -14,11 +14,11 @@ class TaskManager:
     @staticmethod
     def view_tasks():
         tasks = [Task(**task) for task in TaskStorage.load_tasks()]
-        print("\nPending Tasks:")
+        print("\nPending Tasks ::")
         for task in tasks:
             if not task.completed:
                 print(f"ID: {task.id}, Title: {task.title}, Due: {task.due_date}")
-        print("\nCompleted Tasks:")
+        print("\nCompleted Tasks ::")
         for task in tasks:
             if task.completed:
                 print(f"ID: {task.id}, Title: {task.title}, Due: {task.due_date}")
