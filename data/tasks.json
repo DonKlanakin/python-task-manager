@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Watch Perfect World",
+        "description": "Watch the newly released episode of Perfect World.",
+        "due_date": "2025-03-20",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Buy Perfume",
+        "description": "Get a new bottle of Davidoff Cool Water.",
+        "due_date": "2025-03-17",
+        "completed": true
+    },
+    {
+        "id": 3,
+        "title": "Schedule Team Meeting",
+        "description": "Set up a meeting with the team to discuss the unfinished tasks.",
+        "due_date": "2025-03-18",
+        "completed": false
+    }
+]
