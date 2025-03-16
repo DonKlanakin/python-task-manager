@@ -64,7 +64,7 @@ def main():
             Log.info(log_prefix, "Exiting DK's Task Manager...")
             break
         else:
-            Log.error(log_prefix, "Invalid input.")
+            Log.error(log_prefix, "Invalid input.", "")
             print("Invalid choice! Please enter a number between 1-6.")
 
 if __name__ == "__main__":
