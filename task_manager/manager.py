@@ -32,5 +32,6 @@ class TaskManager:
             tasks = [task for task in tasks if task.id != task_id]
             TaskStorage.save_tasks(tasks)
             print("Task deleted successfully!")
+            Log.info(log_prefix, "Task deleted successfully!")
         except Exception as e:
             Log.error(log_prefix, "An error occurred.", e)

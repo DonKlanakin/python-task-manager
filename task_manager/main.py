@@ -47,7 +47,9 @@ def main():
         elif choice == "4":
             Log.info(log_prefix, "Choice 4 selected")
             # prompt for task id
+            task_id = int(input("Enter task ID to delete: "))
             # f() delete task
+            TaskManager.delete_task(task_id)
         elif choice == "5":
             Log.info(log_prefix, "Choice 5 selected")
             # prompt for keyword
