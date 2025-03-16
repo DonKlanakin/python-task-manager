@@ -25,6 +25,21 @@ class TaskManager:
                 print(f"ID: {task.id}, Title: {task.title}, Due: {task.due_date}")
 
     @staticmethod
+    def mark_task_complete(task_id):
+        log_prefix = "[-TaskManager-] :: mark_task_complete"
+        try:
+            tasks = [Task(**task) for task in TaskStorage.load_tasks()]
+            for task in tasks:
+                if task.id == task_id:
+                    task.completed = True
+                    TaskStorage.save_tasks(tasks)
+                    print("Task marked as complete!")
+                    return
+            print("Task not found!")
+        except Exception as e:
+            Log.error(log_prefix, "An error occurred.", e)
+
+    @staticmethod
     def delete_task(task_id):
         log_prefix = "[-TaskManager-] :: delete_task"
         try:

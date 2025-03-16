@@ -43,7 +43,9 @@ def main():
         elif choice == "3":
             Log.info(log_prefix, "Choice 3 selected")
             # prompt for task id
+            task_id = int(input("Enter task ID to mark complete: "))
             # f() mark task as complete
+            TaskManager.mark_task_complete(task_id)
         elif choice == "4":
             Log.info(log_prefix, "Choice 4 selected")
             # prompt for task id
