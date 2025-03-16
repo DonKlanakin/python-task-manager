@@ -1,7 +1,9 @@
 import os
 import json
+from logger import Log
 
-TASKS_FILE = "data/tasks.json"
+dir_name = os.path.dirname(__file__)
+TASKS_FILE = os.path.join(dir_name, "../data/tasks.json")
 
 class TaskStorage:
     @staticmethod
@@ -9,6 +11,8 @@ class TaskStorage:
         if os.path.exists(TASKS_FILE):
             with open(TASKS_FILE, "r") as file:
                 return json.load(file)
+        else:
+            Log.debug("[-TaskStorage-]", "Tasks file not found.")
         return []
 
     @staticmethod
