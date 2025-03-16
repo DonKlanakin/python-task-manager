@@ -53,7 +53,9 @@ def main():
         elif choice == "5":
             Log.info(log_prefix, "Choice 5 selected")
             # prompt for keyword
+            keyword = input("Enter keyword or due date to search: ")
             # f() search for tasks
+            TaskManager.search_tasks(keyword)
             print()
         elif choice == "6":
             Log.info(log_prefix, "Choice 6 selected")

@@ -35,3 +35,19 @@ class TaskManager:
             Log.info(log_prefix, "Task deleted successfully!")
         except Exception as e:
             Log.error(log_prefix, "An error occurred.", e)
+
+    @staticmethod
+    def search_tasks(query):
+        log_prefix = "[-TaskManager-] :: search_tasks"
+        try:
+            tasks = [Task(**task) for task in TaskStorage.load_tasks()]
+            results = [task for task in tasks if
+                       query.lower() in task.title.lower() or query.lower() in task.description.lower() or query.lower() in task.due_date.lower()]
+            if results:
+                print("Search Results:")
+                for task in results:
+                    print(f"ID: {task.id}, Title: {task.title}, Due: {task.due_date}")
+            else:
+                print("No tasks found.")
+        except Exception as e:
+            Log.error(log_prefix, "An error occurred.", e)
