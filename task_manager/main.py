@@ -27,15 +27,19 @@ def main():
                 # f() create a task
                 TaskManager.add_task(title, description, due_date)
                 
-            except ValueError:
-                Log.error(log_prefix, f"Invalid date format (Must be YYYY-MM-DD).")
+            except ValueError as e:
+                Log.error(log_prefix, f"Invalid date format (Must be YYYY-MM-DD).", e)
+            except Exception as e:
+                Log.error(log_prefix, "An error occurred.", e)
         elif choice == "2":
             Log.info(log_prefix, "Choice 2 selected")
             try:
                 print("\n[- View All Tasks -]")
                 TaskManager.view_tasks()
-            except JSONDecodeError:
-                Log.error(log_prefix, "JSON parsing failed or file is empty.")
+            except JSONDecodeError as e:
+                Log.error(log_prefix, f"JSON parsing failed or file is empty.", e)
+            except Exception as e:
+                Log.error(log_prefix, "An error occurred.", e)
         elif choice == "3":
             Log.info(log_prefix, "Choice 3 selected")
             # prompt for task id
