@@ -56,8 +56,10 @@ class TaskManager:
         log_prefix = "[-TaskManager-] :: search_tasks"
         try:
             tasks = [Task(**task) for task in TaskStorage.load_tasks()]
-            results = [task for task in tasks if
-                       query.lower() in task.title.lower() or query.lower() in task.description.lower() or query.lower() in task.due_date.lower()]
+            results = []
+            for task in tasks:
+                if query.lower() in task.title.lower() or query.lower() in task.description.lower() or query.lower() in task.due_date.lower():
+                    results.append(task)
             if results:
                 print("Search Results:")
                 for task in results:
