@@ -1,5 +1,6 @@
 from storage import TaskStorage
 from task import Task
+from logger import Log
 
 class TaskManager:
     @staticmethod
@@ -22,3 +23,14 @@ class TaskManager:
         for task in tasks:
             if task.completed:
                 print(f"ID: {task.id}, Title: {task.title}, Due: {task.due_date}")
+
+    @staticmethod
+    def delete_task(task_id):
+        log_prefix = "[-TaskManager-] :: delete_task"
+        try:
+            tasks = [Task(**task) for task in TaskStorage.load_tasks()]
+            tasks = [task for task in tasks if task.id != task_id]
+            TaskStorage.save_tasks(tasks)
+            print("Task deleted successfully!")
+        except Exception as e:
+            Log.error(log_prefix, "An error occurred.", e)
