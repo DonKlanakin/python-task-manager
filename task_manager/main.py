@@ -28,7 +28,7 @@ def main():
                 TaskManager.add_task(title, description, due_date)
                 
             except ValueError:
-                Log.error(log_prefix, "Invalid date format.")
+                Log.error(log_prefix, f"Invalid date format (Must be YYYY-MM-DD).")
         elif choice == "2":
             Log.info(log_prefix, "Choice 2 selected")
             try:
